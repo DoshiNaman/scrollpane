@@ -330,6 +330,19 @@
           }
         }
       })
+      $(".pane,.scrzone").on("swipeup swipedown", function (event) {
+        event.preventDefault()
+        if ($ScrollState == false) {
+          $ScrollState = true
+          if (event.deltaY < 0) {
+            UpdateScreen("+")
+          } else if (event.deltaY > 0) {
+            UpdateScreen("-")
+          } else {
+            $ScrollState = false
+          }
+        }
+      })
 
       //Init
       function Init() {
